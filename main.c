@@ -1,14 +1,15 @@
 /* 
  * File:   main.c
- * Author: MarcoVelluto
+ * Author: Marco Velluto
  *
  * Created on 13 gennaio 2014, 21.21
  * 
- * Visualizza la tabella di conversione tra Fahrenheit e Celsius
+ * View the convertion table Fahrenheit - Celsius
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+
 
 /*
  * 
@@ -19,8 +20,12 @@ int main(int argc, char** argv) {
 
     degreesTableInteger();
     printf("\n******************************\n");
+    printf("\n*********Table Real *************\n");
+    printf("\n******************************\n");
     degreesTableReal();
-        
+    printf("\n******************************\n");
+    printf("\n*********Table With For *************\n");
+    printf("\n******************************\n");    degreeTableWithFor();        
     return (EXIT_SUCCESS);
 } 
 
@@ -29,7 +34,7 @@ int main(int argc, char** argv) {
  *************************************************************************/
 
 /*
- Visualizza una tabella con i valori INTERI Fahrenheit e Celsius
+ View a tabe with integer values Fahrenheit e Celsius
  */
 int degreesTableInteger (){
     int fahr, celsius;
@@ -54,7 +59,7 @@ int degreesTableInteger (){
 }
 
 /*
- Visualizza una tabella con i valori IN VIRGOLA Fahrenheit e Celsius
+ View a table with decimal values Fahrenheit e Celsius
  */
 int degreesTableReal (){
     float fahr, celsius;
@@ -81,3 +86,37 @@ int degreesTableReal (){
 /************************************************************************
  *              1.3 - Constructor for
  *************************************************************************/
+
+/*
+ View the table Fahrenheit-Celsius
+ */
+int degreeTableWithFor (){
+    int fahr;
+    
+    for (fahr = 0; fahr <= 300; fahr += 20)
+        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+    return (0);
+}
+
+/************************************************************************
+ *              1.4 - Simboli di costanti
+ *************************************************************************/
+
+#define LOWER   0      /* valore minimo in gradi F nella tabella delle 
+                           temperature */
+#define UPPER   300    /* valore massimo in gradi F */
+#define STEP    20     /* intervallo tra due temperature in gradi F 
+                           adiacenti*/      
+
+
+/*
+ View the table Fahrenheit-Celsius with constant
+ */
+int degreeTableWithFor (){
+    
+    int fahr;
+    
+    for (fahr = LOWER; fahr <= UPPER; fahr += STEP)
+        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+    return (0);
+}
