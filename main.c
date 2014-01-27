@@ -10,14 +10,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /*
  * 
  */
 int main(int argc, char** argv) {
 
     //°C = (5/9)(°F - 32)
-
+/*
     degreesTableInteger();
     printf("\n******************************\n");
     printf("\n*********Table Real *************\n");
@@ -25,9 +24,22 @@ int main(int argc, char** argv) {
     degreesTableReal();
     printf("\n******************************\n");
     printf("\n*********Table With For *************\n");
-    printf("\n******************************\n");    degreeTableWithFor();        
+    printf("\n******************************\n");
+    degreeTableWithFor();
+   
+    printf("\n******************************\n");
+    printf("\n********* Read - Write (1° Version )*************\n");
+    printf("\n******************************\n");
+    readWrite1();
+ */    
+    printf("\n******************************\n");
+    printf("\n********* Read - Write (2° Version )*************\n");
+    printf("\n******************************\n");
+    readWrite1();
+
+
     return (EXIT_SUCCESS);
-} 
+}
 
 /************************************************************************
  *              1.2 - Variables
@@ -36,18 +48,18 @@ int main(int argc, char** argv) {
 /*
  View a tabe with integer values Fahrenheit e Celsius
  */
-int degreesTableInteger (){
+int degreesTableInteger() {
     int fahr, celsius;
     int lower, upper, step;
-    
-    lower = 0;                  /* Valore minimo in gradi F nella tabella delle 
-                                 temperature */
-    upper = 300;                /* Valore massimo in gradi F */
-    step = 20;                  /* Intervallo fra due temperature in gradi F 
+
+    lower = 0; /* Valore minimo in gradi F nella tabella delle 
+                           temperature */
+    upper = 300; /* Valore massimo in gradi F */
+    step = 20; /* Intervallo fra due temperature in gradi F 
                                    adiacenti */
-    
+
     fahr = lower;
-    
+
     printf("*** INTEGER ***\n");
     printf("Fahrenhei\tCelsius\n");
     while (fahr <= upper) {
@@ -55,24 +67,24 @@ int degreesTableInteger (){
         printf("%d\t\t%d\n", fahr, celsius);
         fahr = fahr + step;
     }
-    return(0);
+    return (0);
 }
 
 /*
  View a table with decimal values Fahrenheit e Celsius
  */
-int degreesTableReal (){
+int degreesTableReal() {
     float fahr, celsius;
     int lower, upper, step;
-    
-    lower = 0;                  /* Valore minimo in gradi F nella tabella delle 
+
+    lower = 0;          /* Valore minimo in gradi F nella tabella delle 
                                  temperature */
-    upper = 300;                /* Valore massimo in gradi F */
-    step = 20;                  /* Intervallo fra due temperature in gradi F 
+    upper = 300;        /* Valore massimo in gradi F */
+    step = 20;          /* Intervallo fra due temperature in gradi F 
                                    adiacenti */
-    
+
     fahr = lower;
-    
+
     printf("\t*** REAL ***\n");
     printf("Fahrenhei\t\tCelsius\n");
     while (fahr <= upper) {
@@ -80,7 +92,7 @@ int degreesTableReal (){
         printf("%f\t\t%f\n", fahr, celsius);
         fahr = fahr + step;
     }
-    return(0);
+    return (0);
 }
 
 /************************************************************************
@@ -90,11 +102,11 @@ int degreesTableReal (){
 /*
  View the table Fahrenheit-Celsius
  */
-int degreeTableWithFor (){
+int degreeTableWithFor() {
     int fahr;
-    
+
     for (fahr = 0; fahr <= 300; fahr += 20)
-        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+        printf("%3d %6.1f\n", fahr, (5.0 / 9.0)*(fahr - 32.0));
     return (0);
 }
 
@@ -112,11 +124,42 @@ int degreeTableWithFor (){
 /*
  View the table Fahrenheit-Celsius with constant
  */
-int degreeTableWithFor (){
-    
+int degreeTableWithConstant() {
+
     int fahr;
-    
+
     for (fahr = LOWER; fahr <= UPPER; fahr += STEP)
-        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32.0));
+        printf("%3d %6.1f\n", fahr, (5.0 / 9.0)*(fahr - 32.0));
     return (0);
 }
+
+
+/************************************************************************
+ *              1.5 - Reading and Writing of characters ON FILE
+ *************************************************************************/
+
+/* 
+ * Makes the output data a replication of the input data - first version 
+ */
+int readWrite1 (){
+    int c;
+    
+    c = getchar();
+    while (c != EOF) {
+        putchar(c);
+        c = getchar();
+    }
+    return (0);
+}
+
+/* 
+ * Makes the output data a replication of the input data - second version 
+ */
+int readWrite2 () {
+    int c;
+    
+    while ((c = getchar()) != EOF)
+        putchar(c);
+    return (0);
+}
+
