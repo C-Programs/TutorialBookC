@@ -31,12 +31,23 @@ int main(int argc, char** argv) {
     printf("\n********* Read - Write (1° Version )*************\n");
     printf("\n******************************\n");
     readWrite1();
- */    
-    printf("\n******************************\n");
+     
+    printf("\n*************************************************\n");
     printf("\n********* Read - Write (2° Version )*************\n");
     printf("\n******************************\n");
     readWrite1();
-
+ 
+    printf("\n********************************************************");
+    printf("\n********* Counting Characters (1° Version )*************");
+    printf("\n********************************************************\n");
+    countingCharacters1();
+*/
+    
+    printf("\n********************************************************");
+    printf("\n********* Counting Characters (2° Version )*************");
+    printf("\n********************************************************\n");
+    countingCharacters2();
+    
 
     return (EXIT_SUCCESS);
 }
@@ -135,8 +146,10 @@ int degreeTableWithConstant() {
 
 
 /************************************************************************
- *              1.5 - Reading and Writing of characters ON FILE
+ *              1.5 - Reading and Writing of characters 
  *************************************************************************/
+
+/******************** 1.5.1 - Copy of file ******************************/
 
 /* 
  * Makes the output data a replication of the input data - first version 
@@ -162,4 +175,33 @@ int readWrite2 () {
         putchar(c);
     return (0);
 }
+
+/******************** 1.5.1 - Counting of Characters ********************/
+
+/* 
+ * Counts the number of characters entered  - first version
+ */
+int countingCharacters1 ()
+{
+    long nc;
+    
+    nc = 0;
+    while (getchar() != EOF)
+        ++ nc;
+    printf("%ld\n", nc);
+    return (0);
+}
+
+/* 
+ * Counts the number of characters entered  - second version
+ */
+int countingCharacters2 ()
+{
+    double nc;
+    
+    for (nc = 0; getchar() != EOF; ++nc);
+    printf("%.0f\n", nc);
+}
+
+
 
