@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /*
  * 
  */
@@ -41,12 +42,18 @@ int main(int argc, char** argv) {
     printf("\n********* Counting Characters (1° Version )*************");
     printf("\n********************************************************\n");
     countingCharacters1();
-*/
+
     
     printf("\n********************************************************");
     printf("\n********* Counting Characters (2° Version )*************");
     printf("\n********************************************************\n");
     countingCharacters2();
+*/
+    
+    printf("\n********************************************************");
+    printf("\n**************** Counting of rows **********************");
+    printf("\n********************************************************\n");
+    countingOfRows();
     
 
     return (EXIT_SUCCESS);
@@ -151,6 +158,8 @@ int degreeTableWithConstant() {
 
 /******************** 1.5.1 - Copy of file ******************************/
 
+// EOF -> ctr + d
+
 /* 
  * Makes the output data a replication of the input data - first version 
  */
@@ -176,7 +185,7 @@ int readWrite2 () {
     return (0);
 }
 
-/******************** 1.5.1 - Counting of Characters ********************/
+/******************** 1.5.2 - Counting of Characters ********************/
 
 /* 
  * Counts the number of characters entered  - first version
@@ -186,7 +195,7 @@ int countingCharacters1 ()
     long nc;
     
     nc = 0;
-    while (getchar() != EOF)
+    while (getchar() '\n' EOF)
         ++ nc;
     printf("%ld\n", nc);
     return (0);
@@ -199,9 +208,23 @@ int countingCharacters2 ()
 {
     double nc;
     
-    for (nc = 0; getchar() != EOF; ++nc);
+    for (nc = 0; getchar() != '\n'; ++nc); 
     printf("%.0f\n", nc);
+    return (0);
 }
 
+/******************** 1.5.3 - Counting of rows ************************/
 
 
+/* 
+ * Counts number of rows in input 
+ */
+int countingOfRows () {
+    
+    int c, n1 = 0;
+    
+    while ((c=getchar() != EOF))
+        if (c == '\n')
+            ++n1;
+    printf("%d\n", n1);
+}
