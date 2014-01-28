@@ -195,7 +195,7 @@ int countingCharacters1 ()
     long nc;
     
     nc = 0;
-    while (getchar() '\n' EOF)
+    while (getchar() != '\n')
         ++ nc;
     printf("%ld\n", nc);
     return (0);
@@ -221,10 +221,13 @@ int countingCharacters2 ()
  */
 int countingOfRows () {
     
-    int c, n1 = 0;
+    int c, n1;
     
-    while ((c=getchar() != EOF))
+    n1 = 0;
+    while ((c=getchar()) != EOF) {
         if (c == '\n')
             ++n1;
+    }
     printf("%d\n", n1);
+    return (0);
 }
